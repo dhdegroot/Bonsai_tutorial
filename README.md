@@ -83,7 +83,7 @@ bash ../run_bonsai.sh -n 8
 In this command, the user can only change the number of threads for the bonsai execution. The input data for Bonsai is taken from the directories `sanity_results` and `cellstates_results` (optional). The Bonsai-results are saved in the directory `bonsai_results`.
 
 
-**For WIndows users** instead of .sh scripts run .ps1 scripts:
+**For Windows users** instead of .sh scripts run .ps1 scripts:
 ```bash
 ..\run_bonsai.ps1 "-n 8"
 ```

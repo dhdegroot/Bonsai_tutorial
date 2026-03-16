@@ -93,7 +93,7 @@ docker exec \
 docker exec \
     -w /mnt \
     -t bonsai \
-    bash -c "mkdir -p /mnt/annotation && rm -r /mnt/bonsai_results/bonsai_vis* && python /bonsai/bonsai_scout/bonsai_scout_preprocess.py --results_folder /mnt/bonsai_results --annotation_path /mnt/annotation --take_all_genes False"
+    bash -c "mkdir -p /mnt/annotation && rm -rf /mnt/bonsai_results/bonsai_vis* && python /bonsai/bonsai_scout/bonsai_scout_preprocess.py --results_folder /mnt/bonsai_results --annotation_path /mnt/annotation --take_all_genes False"
 
 echo "Bonsai run finished."
 
