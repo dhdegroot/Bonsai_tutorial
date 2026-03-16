@@ -67,7 +67,7 @@ if [ -f "cellstates_results/optimized_clusters.txt" ]; then
 	docker exec \
 	    -w /mnt \
 	    -t bonsai \
-	    bash -c "mkdir -p bonsai_results/premerge_cs && python /bonsai/bonsai/create_config_file.py --new_yaml_path /mnt/bonsai_results/bonsai_config.yaml --dataset 'bonsai_docker' --data_folder /mnt/sanity_results --results_folder /mnt/bonsai_results --nnn_n_randomtrees 4 --nnn_n_randommoves 100 --tmp_folder /mnt/bonsai_results/premerge_cs --input_is_sanity_output True"
+	    bash -c "mkdir -p bonsai_results/premerge_cs && python /bonsai/bonsai/create_config_file.py --new_yaml_path /mnt/bonsai_results/bonsai_config.yaml --dataset 'bonsai_docker' --data_folder /mnt/sanity_results --results_folder /mnt/bonsai_results --nnn_n_randomtrees 4 --nnn_n_randommoves 100 --tmp_folder /mnt/bonsai_results/premerge_cs --input_is_sanity_output True --pickup_intermediate True"
 
     docker exec \
         -w /mnt \
@@ -79,7 +79,7 @@ else
 	docker exec \
 	    -w /mnt \
 	    -t bonsai \
-	    bash -c "mkdir -p bonsai_results/premerge_cs && python /bonsai/bonsai/create_config_file.py --new_yaml_path /mnt/bonsai_results/bonsai_config.yaml --dataset 'bonsai_docker' --data_folder /mnt/sanity_results --results_folder /mnt/bonsai_results --nnn_n_randomtrees 4 --nnn_n_randommoves 100 --input_is_sanity_output True"
+	    bash -c "mkdir -p bonsai_results/premerge_cs && python /bonsai/bonsai/create_config_file.py --new_yaml_path /mnt/bonsai_results/bonsai_config.yaml --dataset 'bonsai_docker' --data_folder /mnt/sanity_results --results_folder /mnt/bonsai_results --nnn_n_randomtrees 4 --nnn_n_randommoves 100 --input_is_sanity_output True --pickup_intermediate True"
 fi
 
 # run bonsai_main with mpi
@@ -93,7 +93,7 @@ docker exec \
 docker exec \
     -w /mnt \
     -t bonsai \
-    bash -c "mkdir -p /mnt/annotation && python /bonsai/bonsai_scout/bonsai_scout_preprocess.py --results_folder /mnt/bonsai_results --annotation_path /mnt/annotation --take_all_genes False"
+    bash -c "mkdir -p /mnt/annotation && rm -r /mnt/bonsai_results/bonsai_vis* && python /bonsai/bonsai_scout/bonsai_scout_preprocess.py --results_folder /mnt/bonsai_results --annotation_path /mnt/annotation --take_all_genes False"
 
 echo "Bonsai run finished."
 
